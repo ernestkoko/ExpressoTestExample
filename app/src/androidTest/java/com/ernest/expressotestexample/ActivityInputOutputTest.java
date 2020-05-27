@@ -46,6 +46,15 @@ public class ActivityInputOutputTest {
         onView(withId(R.id.text_header_reply)).check(matches(isDisplayed()));
 
     }
+
+    @Test
+    public void textInputOutput(){
+        //matches the view editText_main and input the text "This is a test"
+        onView(withId(R.id.editText_main)).perform(typeText("This is a test"));
+
+        onView(withId(R.id.button_main)).perform(click());
+        onView(withId(R.id.editText_second)).check(matches(withText("This is a test")));
+    }
     @Test
     public void useAppContext() {
         // Context of the app under test.
